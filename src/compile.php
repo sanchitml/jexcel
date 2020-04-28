@@ -1,16 +1,47 @@
 <?php
 
+$js = '';
+
+
+
 if ($handle = opendir('js')) {
-    $js = '';
     $css = '';
     while (false !== ($entry = readdir($handle))) {
-        if ($entry != "." && $entry != ".." && (! isset($modules) || in_array(substr($entry, 0, strpos($entry, '.')), $modules))) {
-            $js .= file_get_contents('js/'.$entry) . "\r\n\r\n";
-        }
+        echo($entry);
+        echo($entry=="jexcel.core.js");
+            if (($entry=="jexcel.core.js")&&($entry != "." && $entry != ".." && (! isset($modules) || in_array(substr($entry, 0, strpos($entry, '.')), $modules)))) {
+                $js .= file_get_contents('js/'.$entry) . "\r\n\r\n";
+            }
     }
     closedir($handle);
+}
 
-    $js = "
+if ($handle = opendir('js')) {
+    $css = '';
+    while (false !== ($entry = readdir($handle))) {
+        echo($entry);
+        echo($entry=="jexcel.extensions.js");
+            if (($entry=="jexcel.extensions.js")&&($entry != "." && $entry != ".." && (! isset($modules) || in_array(substr($entry, 0, strpos($entry, '.')), $modules)))) {
+                $js .= file_get_contents('js/'.$entry) . "\r\n\r\n";
+            }
+    }
+    closedir($handle);
+}
+
+if ($handle = opendir('js')) {
+    $css = '';
+    while (false !== ($entry = readdir($handle))) {
+        echo($entry);
+        echo($entry=="jexcel.formulas.js");
+            if (($entry=="jexcel.formulas.js")&&($entry != "." && $entry != ".." && (! isset($modules) || in_array(substr($entry, 0, strpos($entry, '.')), $modules)))) {
+                $js .= file_get_contents('js/'.$entry) . "\r\n\r\n";
+            }
+    }
+    closedir($handle);
+}
+
+
+$jsfull = "
 /**
  * jExcel v4.0.0
  *
@@ -40,5 +71,7 @@ $js
 
 })));";
 
-    file_put_contents('../dist/jexcel.js', $js);
-}
+
+
+
+file_put_contents('../dist/jexcel.js', $jsfull);
