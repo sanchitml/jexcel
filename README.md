@@ -264,3 +264,13 @@ jExcel CE is released under the [MIT license]. Copyrights belong to Paul Hodel <
 
 ## Other tools by the author
 - [jSuites JavaScriptWeb Components](https://bossanova.uk/jsuites)
+
+
+# First time compile guide
+
+# Install Docker and docker compose,
+# If in mac,
+https://hub.docker.com/editions/community/docker-ce-desktop-mac/
+
+# Then,
+docker-compose up -d 

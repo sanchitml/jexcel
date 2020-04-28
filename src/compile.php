@@ -19,7 +19,7 @@ if ($handle = opendir('js')) {
  * Description: Create amazing web based spreadsheets.
  *
  * This software is distribute under MIT License
- */
+*/
 
  if (! jSuites && typeof(require) === 'function') {
     var jSuites = require('jsuites');
